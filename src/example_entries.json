@@ -1,0 +1,42 @@
+[
+  {
+    "date": "01.10.2020",
+    "time": ["08:00", "11:00"],
+    "location": "Matolampi",
+    "coordinates": {
+      "format": "ETRS-TM35FIN",
+      "data": "7092274,536614"
+    },
+    "weather": {
+      "temperature": {
+        "format": "celsius",
+        "value": 8
+      },
+      "description": "Cloudy and foggy"
+    },
+    "events": "Birds laying on ground. No flights.",
+    "extra": {
+      "result": ""
+    }
+  },
+  {
+    "date": "02.10.2020",
+    "time": ["08:00", "11:00"],
+    "location": "Kiiskinen",
+    "coordinates": {
+      "format": "ETRS-TM35FIN",
+      "data": "7097401,527885"
+    },
+    "weather": {
+      "temperature": {
+        "format": "celsius",
+        "value": 7
+      },
+      "description": "Clear, slightly windy"
+    },
+    "events": "Large swamp. Crazy amount of birds.",
+    "extra": {
+      "result": ""
+    }
+  }
+]
