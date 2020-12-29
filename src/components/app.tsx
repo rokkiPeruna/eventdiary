@@ -1,9 +1,12 @@
 import React from 'react';
+import { EventEntryTable } from './components'
 
 class App extends React.Component {
   render() {
     return (
-      <div>Hello</div>
+      <div>
+          <EventEntryTable />
+      </div>
     )
   }
 }
