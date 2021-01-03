@@ -18,11 +18,6 @@ const store = createStore(
   composeEnhancers()
 );
 
-
-
-
-
-
 ReactDOM.render(
   <Provider store={store}>
     <App />

@@ -1,14 +1,20 @@
 import React from 'react';
-import { EventEntryTable } from './components'
+import { AddNewEventEntry, EventEntryTable } from './components'
+import { useSelector } from 'react-redux';
+import { AppState } from '../reducers';
 
-class App extends React.Component {
-  render() {
-    return (
+function App(props: any) {
+  const entries = useSelector((state: AppState) => state.entries);
+  return (
+    <div>
       <div>
-          <EventEntryTable />
+        <AddNewEventEntry />
       </div>
-    )
-  }
+      <div>
+          <EventEntryTable user_entries={entries} />
+      </div>
+    </div>
+  )
 }
 
 export default App;
