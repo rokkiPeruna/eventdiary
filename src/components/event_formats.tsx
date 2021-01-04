@@ -1,6 +1,6 @@
 import { StringDataInput } from './components'
 
-type TStringDataInput = {
+type IStringDataInput = {
   format: typeof StringDataInput,
   header: string,
   placeholder: string
@@ -9,7 +9,7 @@ type TStringDataInput = {
 /** Basic event format */
 export class BasicEventFormat {
   _id: number;
-  input_fields: TStringDataInput[];
+  input_fields: IStringDataInput[];
 
   constructor() {
     this._id = -1;

@@ -1,20 +1,30 @@
 import React from 'react';
+import { LoginInput } from './user_auth';
 import { AddNewEventEntry, EventEntryTable } from './components'
 import { useSelector } from 'react-redux';
 import { AppState } from '../reducers';
 
 function App(props: any) {
   const entries = useSelector((state: AppState) => state.entries);
-  return (
-    <div>
+  const isLogged = useSelector((state: AppState) => state.isLogged);
+  if(isLogged) {
+    return (
       <div>
-        <AddNewEventEntry />
+        <div>
+          <AddNewEventEntry />
+        </div>
+        <div>
+            <EventEntryTable user_entries={entries} />
+        </div>
       </div>
+    )
+  } else {
+    return (
       <div>
-          <EventEntryTable user_entries={entries} />
+        <LoginInput />
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default App;

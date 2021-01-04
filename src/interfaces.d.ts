@@ -1,14 +1,14 @@
 import { BasicEventFormat } from 'components/event_formats';
 
-interface StringDataInputProps {
+type IUserCredentials = {
+  username: string,
+  password: string
+}
+
+type IStringDataInputProps = {
   header: string,
   placeholder: string
 }
-
-type IAdditionalEntryData = {
-  header: string,
-  data: string
-};
 
 type ISingleEntry = {
   _id: number,

@@ -1,11 +1,11 @@
-import React from 'react';
 import { useDispatch } from 'react-redux';
 import { add_entry, remove_entry } from '../actions';
 import * as formats from './event_formats';
-import { StringDataInputProps } from '../interfaces'
+import { IStringDataInputProps } from '../interfaces'
+
 
 /* Header and data input as string */
-export function StringDataInput(props: StringDataInputProps) {
+export function StringDataInput(props: IStringDataInputProps) {
   return (
     <div className="string-data">
       <h3>
@@ -15,7 +15,7 @@ export function StringDataInput(props: StringDataInputProps) {
       </input>
     </div>
   )
-}
+};
 
 /* Component for adding new events */
 export function AddNewEventEntry() {
@@ -40,20 +40,25 @@ export function RemoveEventEntry(props: {id: number}) {
 /* Single event entry contains all data needed to present single event entry */
 const SingleEventEntry = (props: {entry_data: formats.BasicEventFormat}) => {
   const input_fields = props.entry_data.input_fields.slice();
-
-  const input_comps = input_fields.map(ifield => {
-    <div>
-      <StringDataInput header={ifield.header} placeholder={ifield.placeholder} />
-      <RemoveEventEntry id={props.entry_data._id} />
-    </div>
+  const id = props.entry_data._id;
+  const input_comps = input_fields.map((ifield, index) => {
+    return (
+      <div key={index} className="column">
+        <StringDataInput header={ifield.header} placeholder={ifield.placeholder} />
+      </div>
+    )
   });
-
-  console.log(input_comps.length);
-  console.log(props.entry_data);
+  input_comps.push( // TODO: Remove hard-coded RemoveEventEntry key value
+    <div key={id + 10000}>
+     <RemoveEventEntry id={id} />
+    </div>
+  )
 
   return (
-  <div className="row">
-    {input_comps}
+  <div>
+    <div className="row">
+      {input_comps}
+    </div>
   </div>
   )
 }
